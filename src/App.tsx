@@ -3,6 +3,10 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import AppLayout from './layouts/AppLayout'
 import Home from './pages/Home'
+import Category from './pages/Category'
+import Product from './pages/Product'
+import Role from './pages/Role'
+import Petugas from './pages/Petugas'
 // import Page from './pages/Pages'
 
 function App() {
@@ -14,6 +18,10 @@ function App() {
           <AppLayout />
         }>
           <Route index element={<Home />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/petugas" element={<Petugas />} />
+          <Route path="/role" element={<Role />} />
 
         </Route>
       </Routes>

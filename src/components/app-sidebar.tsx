@@ -59,23 +59,23 @@ const items = [
     icon: Home,
   },
   {
-    title: "Inbox",
-    url: "#",
+    title: "Category",
+    url: "/category",
     icon: Inbox,
   },
   {
-    title: "Calendar",
-    url: "#",
+    title: "Product",
+    url: "/product",
     icon: Calendar,
   },
   {
-    title: "Search",
-    url: "#",
+    title: "Petugas",
+    url: "/petugas",
     icon: Search,
   },
   {
-    title: "Settings",
-    url: "#",
+    title: "Role",
+    url: "/role",
     icon: Settings,
   },
 ]
