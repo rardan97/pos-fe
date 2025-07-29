@@ -1,5 +1,5 @@
 
-import { RegisterForm } from "@/components/register-form";
+import { RegisterForm } from "@/components/auth/register-form";
 import { GalleryVerticalEnd } from "lucide-react";
 
 
