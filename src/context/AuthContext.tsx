@@ -71,12 +71,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     // Sinkronisasi localStorage dengan state jika terjadi perubahan di luar React (optional)
     useEffect(() => {
             function syncStorage() {
-            const localToken = localStorage.getItem("accessToken");
-            const localRefresh = localStorage.getItem("refreshToken");
-            const localUser = localStorage.getItem("petugas_data");
-            if (localToken !== token) setToken(localToken);
-            if (localRefresh !== refreshToken) setRefreshToken(localRefresh);
-            if (localUser !== JSON.stringify(petugas)) setPetugas(localUser ? JSON.parse(localUser) : null);
+              const localToken = localStorage.getItem("accessToken");
+              const localRefresh = localStorage.getItem("refreshToken");
+              const localUser = localStorage.getItem("petugas_data");
+              if (localToken !== token) setToken(localToken);
+              if (localRefresh !== refreshToken) setRefreshToken(localRefresh);
+              if (localUser !== JSON.stringify(petugas)) setPetugas(localUser ? JSON.parse(localUser) : null);
             }
             window.addEventListener("storage", syncStorage);
             return () => window.removeEventListener("storage", syncStorage);

@@ -1,10 +1,12 @@
 
-import { RegisterForm } from "@/components/auth/register-form";
+
+import RegisterForm from "@/components/auth/register-form";
 import { GalleryVerticalEnd } from "lucide-react";
 
 
 
 export default function Register() {
+    
     return (
         <>
             <div className="grid min-h-svh lg:grid-cols-2">

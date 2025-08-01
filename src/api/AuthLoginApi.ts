@@ -8,6 +8,7 @@ export const api = axios.create({
 });
 
 export async function signInAuth(data: SignInReq): Promise<{ data: SignInRes | null }> {
+    console.log("login hit api");
     try{
         const response = await axios.post<SignInRes>(`${REST_API_BASE_URL_AUTH}/signin`, data);
         console.log(response);

@@ -1,9 +1,9 @@
 export interface Role {
-    roleId: number;
-    roleName: string;
+    rolePetugasId: number;
+    rolePetugasName: string;
 }
 
 export interface RoleDto {
-  roleName: string;
+  rolePetugasName: string;
 }
 

@@ -6,7 +6,6 @@ import {
     Copy,
     Link,
     Star,
-    Trash2,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -25,6 +24,7 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { ModeToggle } from "./mode-toggle"
+import LogoutButton from "./auth/logout"
 
 const data = [
     [
@@ -37,13 +37,6 @@ const data = [
             icon: Copy,
         }
     ],
-    [
-        {
-            label: "Log out",
-            icon: Trash2,
-        },
-
-    ]
 ]
 
 export function NavActions() {
@@ -87,10 +80,12 @@ export function NavActions() {
                                             </SidebarMenuButton>
                                         </SidebarMenuItem>
                                     ))}
+                                   
                                     </SidebarMenu>
                                 </SidebarGroupContent>
                             </SidebarGroup>
                         ))}
+                         <LogoutButton />
                         </SidebarContent>
                     </Sidebar>
                 </PopoverContent>

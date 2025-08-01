@@ -14,7 +14,6 @@ SidebarInset,
 SidebarProvider,
 SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { Card } from "@/components/ui/card";
 
 const LayoutContent: React.FC = () => {
 
@@ -43,14 +42,7 @@ const LayoutContent: React.FC = () => {
                     <NavActions />
                 </div>
                 </header>
-                <Card className="m-9 p-9">
-                    <Outlet />
-                </Card>
-                
-                
-
-                
-                
+                <Outlet />
                 {/* 
                 <div className="bg-muted/50 mx-auto h-24 w-full max-w-3xl rounded-xl" />
                 <div className="bg-muted/50 mx-auto h-full w-full max-w-3xl rounded-xl" />

@@ -59,6 +59,16 @@ const items = [
     icon: Home,
   },
   {
+    title: "Kasir",
+    url: "/kasir",
+    icon: Inbox,
+  },
+  {
+    title: "Transaksi",
+    url: "/transaksi",
+    icon: Inbox,
+  },
+  {
     title: "Category",
     url: "/category",
     icon: Inbox,

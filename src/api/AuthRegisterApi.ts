@@ -9,6 +9,7 @@ export const api = axios.create({
 });
 
 export async function signUpAuth(data: SignUpReq): Promise<{ data: SignUpRes | null }> {
+    console.log("data :"+data);
     try{
         const response = await axios.post<SignUpRes>(`${REST_API_BASE_URL_AUTH}/signup`, data);
         console.log(response);
@@ -20,12 +21,15 @@ export async function signUpAuth(data: SignUpReq): Promise<{ data: SignUpRes | n
 }
 
 export async function getListRoleAuth() : Promise<Role[]>{
+    console.log(REST_API_BASE_URL_AUTH);
     try{
         const response = await api.get<Role[]>(`${REST_API_BASE_URL_AUTH}/getRoleListAll`, {
             headers: {
                 "Content-Type": "application/json"
             },
         });
+
+      
         return response.data;
     }catch(error){
         console.error("Error during user fetch:", error);
