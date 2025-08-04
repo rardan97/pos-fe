@@ -36,6 +36,7 @@ interface Errors {
     productName: string;
     productDescription: string;
     productPrice: string;
+    productStock: number;
     productImage:string;
     productCategoryId: string;
 }
@@ -48,6 +49,7 @@ export default function ProductEdit({onSuccess, idProduct} : ProductEditProps) {
     const [productName, setProductName] = useState<string>("");
     const [productDescription, setProductDescription] = useState<string>("");
     const [productPrice, setProductPrice] = useState<string>("");
+    const [productStock, setProductStock] = useState<number>(0);
     const [productImage, setProductImage] = useState<File | string>("");
     const [productCategoryId, setProductCategoryId] = useState<string>("");
 
@@ -61,6 +63,7 @@ export default function ProductEdit({onSuccess, idProduct} : ProductEditProps) {
         productName: '',
         productDescription: '',
         productPrice: '',
+        productStock: 0,
         productImage:'',
         productCategoryId: '',
         
@@ -79,6 +82,7 @@ export default function ProductEdit({onSuccess, idProduct} : ProductEditProps) {
                     const resImage = await getLoadImageProduct(token, response.productImage);
                     const url = URL.createObjectURL(resImage);
                     setPreviewUrl(url);
+                    console.log("Data Image get : "+response.productImage);
                     setProductImage(response.productImage);
                 } else {
                     setProductImage(""); 
@@ -87,6 +91,7 @@ export default function ProductEdit({onSuccess, idProduct} : ProductEditProps) {
                 setProductName(response.productName);
                 setProductDescription(response.productDescription);
                 setProductPrice(response.productPrice);
+                setProductStock(response.productStock);
                 setProductCategoryId(response.productCategory.categoryId.toString());
                 
             } catch (error) {
@@ -200,11 +205,14 @@ export default function ProductEdit({onSuccess, idProduct} : ProductEditProps) {
                     throw new Error("categoryId is undefined");
                 }
 
+                console.log("edit image :"+productImage);
+
                 const newProduct: EditProductDto = {
                     productId,
                     productName,
                     productDescription,
                     productPrice,
+                    productStock,
                     productImage,
                     productCategoryId
                 };
@@ -216,6 +224,7 @@ export default function ProductEdit({onSuccess, idProduct} : ProductEditProps) {
                     setProductName("");
                     setProductDescription("");
                     setProductPrice("");
+                    setProductStock(0);
                     setProductImage("");
                     setProductCategoryId("");
                     setErrorsAll("");
@@ -288,9 +297,9 @@ export default function ProductEdit({onSuccess, idProduct} : ProductEditProps) {
                     {errors.productDescription && <p className="text-red-500 text-sm">{errors.productDescription}</p>}
                 </div>
                 <div className="grid gap-3">
-                    <Label htmlFor="productDescription">Product Price</Label>
+                    <Label htmlFor="productPrice">Product Price</Label>
                     <Input 
-                        id="productDescription" 
+                        id="productPrice" 
                         type="text" 
                         value={productPrice}
                         onChange={(e) => setProductPrice(e.target.value)}
@@ -299,18 +308,31 @@ export default function ProductEdit({onSuccess, idProduct} : ProductEditProps) {
                 </div>
 
                 <div className="grid gap-3">
-                <Label htmlFor="email">Category</Label>
-                <Select onValueChange={(value) => setProductCategoryId(value)}>
-                    <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select Role" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        {optionsCategory.map((category) => (
-                            <SelectItem key={category.value} value={category.value}>{category.label}</SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
-            </div>
+                    <Label htmlFor="productStock">Product Stock</Label>
+                    <Input 
+                        id="productStock" 
+                        type="number" 
+                        value={productStock}
+                        onChange={(e) => setProductStock(Number(e.target.value))}
+                    />
+                    {/* {errors.productStock && <p className="text-red-500 text-sm">{errors.productStock}</p>} */}
+                </div>
+
+                <div className="grid gap-3">
+                    <Label htmlFor="email">Category</Label>
+                    <Select
+                     value={productCategoryId}
+                     onValueChange={(value) => setProductCategoryId(value)}>
+                        <SelectTrigger className="w-full">
+                            <SelectValue placeholder="Select Role" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {optionsCategory.map((category) => (
+                                <SelectItem key={category.value} value={category.value}>{category.label}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </div>
                 
                 {/* <div className="grid gap-3">
                     <Label htmlFor="productCategory">Product Category</Label>

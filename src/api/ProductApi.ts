@@ -30,6 +30,7 @@ export async function addProduct(token: string, data: AddProductDto) : Promise<P
         productName: data.productName,
         productDescription: data.productDescription,
         productPrice: data.productPrice,
+        productStock: data.productStock,
         productCategoryId: data.productCategoryId
     }
 
@@ -77,6 +78,8 @@ export async function editProduct(token: string, id : number, data: EditProductD
         productName: data.productName,
         productDescription: data.productDescription,
         productPrice: data.productPrice,
+        productStock: data.productStock,
+        // productImage: data.productImage,
         productCategoryId: data.productCategoryId
     }
 

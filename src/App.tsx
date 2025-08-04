@@ -12,6 +12,7 @@ import Register from './pages/Auth/Register'
 import { AuthProvider } from './context/AuthContext'
 import PrivateRoute from './utils/PrivateRoute'
 import Kasir from './pages/Kasir'
+import Transaksi from './pages/Transaksi'
 // import Page from './pages/Pages'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
 
           <Route index element={<Home />} />
           <Route path="/kasir" element={<Kasir />} />
+          <Route path="/transaksi" element={<Transaksi />} />
           <Route path="/category" element={<Category />} />
           <Route path="/product" element={<Product />} />
           <Route path="/petugas" element={<Petugas />} />

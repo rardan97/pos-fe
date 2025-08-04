@@ -52,6 +52,7 @@ export default function ProductList() {
                             <TableHead>Product Name</TableHead>
                             <TableHead>Product Desk</TableHead>
                             <TableHead>Product Price</TableHead>
+                            <TableHead>Product Stock</TableHead>
                             <TableHead>Product Category</TableHead>
                             <TableHead className="text-right">Action</TableHead>
                             </TableRow>
@@ -65,6 +66,7 @@ export default function ProductList() {
                             <TableCell>{product.productName}</TableCell>
                             <TableCell>{product.productDescription}</TableCell>
                             <TableCell>{product.productPrice}</TableCell>
+                            <TableCell>{product.productStock}</TableCell>
                             <TableCell>{product.productCategory.categoryName}</TableCell>
                             <TableCell className="text-right ">
                                 <ProductEdit onSuccess={getListAllProduct} idProduct={product.productId as number} />
